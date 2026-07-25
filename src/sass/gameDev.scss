@@ -1,4 +1,5 @@
 @use "colors.scss";
+@use "universal.scss";
 
 #title {
     margin: auto;
@@ -11,8 +12,9 @@
 #games {
     margin: auto;
     margin-top: 50px;
-    width: 50%;
+    width: 80%;
     display: flex;
+    flex-wrap: wrap;
     gap: 25px;
     text-align: center;
     justify-content: center;
@@ -160,5 +162,11 @@
         -webkit-box-shadow: inset 0 0 0 1px colors.$background1;
         -moz-box-shadow: inset 0 0 0 1px colors.$background1;
         box-shadow: inset 0 0 0 1px colors.$background1;
+    }
+}
+
+@media (max-width: universal.$mobileWidth) { 
+    #gameArticles > input {
+        width: 85%;
     }
 }

@@ -67,6 +67,11 @@ $navHeight: $navHeightRaw + px;
 
 @media (max-width: universal.$mobileWidth) {
   // Mobile
+  #headerNav {
+    position: absolute;
+    top: 0px;
+  }
+
   #nav {
     background-color: transparent;
     display: inline;
@@ -74,9 +79,9 @@ $navHeight: $navHeightRaw + px;
     left: 0px;
     right: 0px;
     height: auto;
-    margin-top: $navHeight;
     overflow: hidden;
     pointer-events: none;
+    top: $navHeight;
   }
 
   .navLink {
@@ -91,6 +96,8 @@ $navHeight: $navHeightRaw + px;
     height: auto;
     padding-top: 15px;
     padding-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
 
     left: 100vw;
     opacity: 0;
@@ -101,6 +108,9 @@ $navHeight: $navHeightRaw + px;
     left: 0;
     opacity: 1;
     pointer-events: all;
+
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   #hamburgerNav {
@@ -117,6 +127,7 @@ $navHeight: $navHeightRaw + px;
     color: colors.$text;
     align-items: center;
     justify-content: center;
+    z-index: 151;
   }
 
   #hamburgerNav:hover {

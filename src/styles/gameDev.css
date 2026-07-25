@@ -1,3 +1,24 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: normal;
+  color: #EDEDED;
+}
+
+#root {
+  margin-bottom: 150px;
+  font-size: 75%;
+}
+
+html {
+  background-color: #131313;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #title {
   margin: auto;
   margin-top: 100px;
@@ -9,8 +30,9 @@
 #games {
   margin: auto;
   margin-top: 50px;
-  width: 50%;
+  width: 80%;
   display: flex;
+  flex-wrap: wrap;
   gap: 25px;
   text-align: center;
   justify-content: center;
@@ -123,4 +145,10 @@
 }
 .pageButton:hover {
   box-shadow: inset 0 0 0 1px #3B3B3B;
+}
+
+@media (max-width: 1250px) {
+  #gameArticles > input {
+    width: 85%;
+  }
 }

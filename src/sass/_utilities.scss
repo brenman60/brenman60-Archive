@@ -15,25 +15,35 @@
 }
 
 .rowTextImage {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
     align-items: center;
 
+    > :nth-child(1),
+    > :nth-child(2) {
+        flex: 1 1 280px;
+        min-width: 0;
+    }
+
     &.imageLeft {
-        grid-template-areas: "img text";
+        > :nth-child(2) {
+            order: 1;
+        }
+
+        > :nth-child(1) {
+            order: 2;
+        }
     }
 
     &.imageRight {
-        grid-template-areas: "text img";
-    }
+        > :nth-child(1) {
+            order: 1;
+        }
 
-    > :nth-child(1) {
-        grid-area: text;
-    }
-
-    > :nth-child(2) {
-        grid-area: img;
+        > :nth-child(2) {
+            order: 2;
+        }
     }
 
     img {
@@ -44,30 +54,42 @@
 }
 
 .rowTextImages {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
     align-items: start;
 
-    &.imageRight {
-        grid-template-areas: "text imgs";
-        grid-template-columns: 1fr 1fr;
-    }
-
-    &.imageLeft {
-        grid-template-areas: "imgs text";
-        grid-template-columns: 1fr 1fr;
-    }
-
     > :nth-child(1) {
-        grid-area: text;
+        flex: 1 1 280px;
+        min-width: 0;
     }
 
     > :nth-child(2) {
-        grid-area: imgs;
+        flex: 1 1 320px;
+        min-width: 0;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
+    }
+
+    &.imageRight {
+        > :nth-child(1) {
+            order: 1;
+        }
+
+        > :nth-child(2) {
+            order: 2;
+        }
+    }
+
+    &.imageLeft {
+        > :nth-child(2) {
+            order: 1;
+        }
+
+        > :nth-child(1) {
+            order: 2;
+        }
     }
 
     figure {
@@ -200,12 +222,21 @@
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
-    .rowTextImage, .rowTextImages {
-        grid-template-columns: 1fr;
+    .rowTextImage,
+    .rowTextImages {
+        flex-direction: column;
+    }
+
+    .rowTextImage > :nth-child(1),
+    .rowTextImage > :nth-child(2),
+    .rowTextImages > :nth-child(1),
+    .rowTextImages > :nth-child(2) {
+        flex-basis: 100%;
+        order: initial;
     }
 
     .rowTextImages > :nth-child(2) {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr;
     }
 
     .rowImages {

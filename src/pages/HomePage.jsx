@@ -78,11 +78,19 @@ const HomePage = () => {
               placeholder={page >= 0 ? page + 1 : 1}
               type="number"
               onChange={(e) => {
-                setCurrentPage(parseInt(e.target.value) - 1);
+                var enteredPage = parseInt(e.target.value) - 1;
+                if (enteredPage >= currentArticles.length) enteredPage = currentArticles.length - 1;
+                else if (enteredPage < 0) enteredPage = 0;
+
+                setCurrentPage(enteredPage);
               }}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  setCurrentPage(parseInt(e.target.value) - 1);
+                  var enteredPage = parseInt(e.target.value) - 1;
+                  if (enteredPage >= currentArticles.length) enteredPage = currentArticles.length - 1;
+                  else if (enteredPage < 0) enteredPage = 0;
+
+                  setCurrentPage(enteredPage);
                   e.target.value = "";
                 }
               }}
